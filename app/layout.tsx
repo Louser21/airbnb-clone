@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {Nunito} from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/Navbar/Navbar"
+import Modal from "./_components/Modals/Modal";
 
 const font = Nunito({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body
         className={`${font.className} antialiased`}
       >
+        <Modal isOpen title="Login"/>
         <Navbar/>
         {children}
       </body>
