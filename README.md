@@ -103,11 +103,12 @@ Open http://localhost:3000 to view the app.
 ## 📦 Scripts
 - Command	Description
 ```
-npm run dev	Start the development server
-npm run build	Build the production app
-npm start	Start the production server
-npx prisma generate	Generate Prisma client
-npx prisma db push	Push schema changes to database
+npm run dev        # Start the development server
+npm run build      # Build the production app
+npm start          # Start the production server
+npx prisma generate  # Generate Prisma client
+npx prisma db push   # Push schema changes to database
+
 ```
 
 ## 🗄 Database Schema
