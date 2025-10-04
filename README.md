@@ -72,13 +72,13 @@ Copy code
 git clone <your-repo-url>
 cd airbnb-clone
 ```
-###2. Install dependencies
+### 2. Install dependencies
 ```bash
 Copy code
 npm install
 ```
 
-###3. Setup Environment Variables
+### 3. Setup Environment Variables
 Create a .env file in the root:
 ```
 env
@@ -89,13 +89,13 @@ GITHUB_SECRET=<github-client-secret>
 GOOGLE_CLIENT_ID=<google-client-id>
 GOOGLE_CLIENT_SECRET=<google-client-secret>
 ```
-###4. Initialize Prisma
+### 4. Initialize Prisma
 ```
 bash
 npx prisma generate
 npx prisma db push
 ```
-###5. Run the Development Server
+### 5. Run the Development Server
 ```
 bash
 npm run dev
