@@ -8,13 +8,13 @@ import {
     useForm
 } from 'react-hook-form';
 
-import useRegisterModal from '../../_hooks/useRegisterModal';
+import useRegisterModal from '../../hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../Inputs/Input';
 import toast from 'react-hot-toast';
 import Button from '../Button';
-import useLoginModal from '@/app/_hooks/useLoginModal';
+import useLoginModal from '@/app/hooks/useLoginModal';
 import { signIn } from 'next-auth/react'; 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';

@@ -1,4 +1,4 @@
-import { safeUser } from '@/app/_types'
+import { safeUser } from '@/app/types'
 import Container from '../Container'
 import Logo from './Logo'
 import Search from './Search'

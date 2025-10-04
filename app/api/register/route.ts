@@ -1,4 +1,4 @@
-import client from "@/app/_libs/prismadb";
+import client from "@/app/libs/prismadb";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 

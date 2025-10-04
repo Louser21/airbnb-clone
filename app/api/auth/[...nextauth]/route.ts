@@ -1,4 +1,4 @@
-import client from "@/app/_libs/prismadb";
+import client from "@/app/libs/prismadb";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth, { AuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
