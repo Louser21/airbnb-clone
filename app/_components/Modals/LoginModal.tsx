@@ -1,8 +1,6 @@
 "use client";
-import axios from 'axios';
 import { AiFillGithub } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
-import { useCallback, useState } from 'react';
 
 import {
     FieldValues,
@@ -19,6 +17,7 @@ import Button from '../Button';
 import useLoginModal from '@/app/_hooks/useLoginModal';
 import { signIn } from 'next-auth/react'; 
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const LoginModal = () => {
     const router = useRouter();
@@ -95,7 +94,7 @@ const LoginModal = () => {
             <div className='text-neutral-500 text-center mt-4 font-light '>
                 <div className='justify-center flex items-center gap-2 '>
                     <div>
-                        Don't have an Account?
+                        Don&#39;t have an Account?
                     </div>
                     <div
                         className='text-neutral-800 cursor-pointer hover:underline'

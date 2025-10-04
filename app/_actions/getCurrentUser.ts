@@ -30,6 +30,7 @@ export default async function getCurrentUser(){
             updatedAt: currentUser.updatedAt.toISOString(),
             emailVerified: currentUser.emailVerified?.toISOString() || null,
         };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
         return null;
     }
