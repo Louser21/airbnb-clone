@@ -101,7 +101,7 @@ Open http://localhost:3000 to view the app.
 ```
 
 ## 📦 Scripts
-- Command	Description
+### Command	Description
 ```
 npm run dev        # Start the development server
 npm run build      # Build the production app
