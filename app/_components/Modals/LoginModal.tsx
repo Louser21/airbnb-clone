@@ -59,6 +59,11 @@ const LoginModal = () => {
             }
         })
     }   
+
+    const toggle = () => {
+        loginModal.onClose();
+        registerModal.onOpen();
+    }
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading title='Welcome Back' subtitle='Login to your Account!' />
@@ -85,17 +90,17 @@ const LoginModal = () => {
     const footerContent = (
         <div className='flex flex-col gap-4 mt-3'>
             <hr />
-            <Button outline label="Continue with Google" Icon={FcGoogle} onClick={() => { }} />
-            <Button outline label="Continue with Github" Icon={AiFillGithub} onClick={() => { }} />
+            <Button outline label="Continue with Google" Icon={FcGoogle} onClick={() => signIn('google')} />
+            <Button outline label="Continue with Github" Icon={AiFillGithub} onClick={() => signIn('github')} />
             <div className='text-neutral-500 text-center mt-4 font-light '>
                 <div className='justify-center flex items-center gap-2 '>
                     <div>
-                        Already have an account?
+                        Don't have an Account?
                     </div>
                     <div
                         className='text-neutral-800 cursor-pointer hover:underline'
-                        onClick={registerModal.onClose}>
-                        Log in
+                        onClick={toggle}>
+                        Create account
                     </div>
                 </div>
             </div>
