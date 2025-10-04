@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Airbnb Clone
 
-## Getting Started
+A modern Airbnb clone built with **Next.js 15.5.3**, **React 19**, **TypeScript**, and **Tailwind CSS**, featuring user authentication, property listings, and reservation management.  
 
-First, run the development server:
+---
 
+## 🛠 Tech Stack
+
+- **Framework:** Next.js 15.5.3  
+- **Frontend:** React 19, Tailwind CSS  
+- **State Management:** Zustand  
+- **Forms:** React Hook Form  
+- **Authentication:** NextAuth (Credentials, Google, GitHub)  
+- **Database:** MongoDB via Prisma ORM  
+- **Server:** Node.js  
+
+---
+
+## 📁 Project Structure
+
+airbnb-clone/
+├─ app/
+│ ├─ _components/ # Reusable UI components (Navbar, Modals, Inputs, etc.)
+│ ├─ _hooks/ # Custom hooks (modal states)
+│ ├─ _actions/ # Server-side actions (getCurrentUser)
+│ ├─ _libs/ # Prisma client setup
+│ ├─ _provider/ # Providers (Toaster notifications)
+│ ├─ api/ # API routes (user registration)
+│ ├─ layout.tsx # Root layout with Navbar and modals
+│ ├─ page.tsx # Homepage
+│ └─ globals.css # Global styles
+├─ pages/
+│ └─ api/auth/[...nextauth].ts # NextAuth configuration
+├─ prisma/
+│ └─ schema.prisma # MongoDB schema
+├─ public/
+│ └─ images/ # Static images (avatars, placeholders)
+├─ package.json
+├─ tsconfig.json
+├─ next.config.ts
+├─ postcss.config.mjs
+├─ eslint.config.mjs
+└─ README.md
+
+markdown
+Copy code
+
+---
+
+## ⚡ Features
+
+- **User Authentication**
+  - Email/password login
+  - OAuth login via Google & GitHub
+  - Secure password hashing with bcrypt
+- **UI Components**
+  - Reusable buttons, modals, inputs, avatars, headings
+  - Responsive Navbar with search bar and user menu
+- **State Management**
+  - Zustand for handling modal states
+- **Database Models**
+  - Users, Accounts, Listings, Reservations
+- **Notifications**
+  - Global toast notifications using react-hot-toast
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 ```bash
+git clone <your-repo-url>
+cd airbnb-clone
+2. Install dependencies
+bash
+Copy code
+npm install
+3. Setup Environment Variables
+Create a .env file in the root:
+
+env
+Copy code
+DATABASE_URL=<your-mongodb-connection-string>
+NEXTAUTH_SECRET=<your-nextauth-secret>
+GITHUB_ID=<github-client-id>
+GITHUB_SECRET=<github-client-secret>
+GOOGLE_CLIENT_ID=<google-client-id>
+GOOGLE_CLIENT_SECRET=<google-client-secret>
+4. Initialize Prisma
+bash
+Copy code
+npx prisma generate
+npx prisma db push
+5. Run the Development Server
+bash
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view the app.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📦 Scripts
+Command	Description
+npm run dev	Start the development server
+npm run build	Build the production app
+npm start	Start the production server
+npx prisma generate	Generate Prisma client
+npx prisma db push	Push schema changes to database
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🗄 Database Schema
+User: Stores user information & authentication data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Account: Links OAuth accounts (Google, GitHub)
 
-## Learn More
+Listing: Property listings (title, location, price, etc.)
 
-To learn more about Next.js, take a look at the following resources:
+Reservation: Bookings linking users to listings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+💡 Future Improvements
+Property search & filtering
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Reservation management & calendar integration
 
-## Deploy on Vercel
+Review and rating system
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Payment gateway integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📄 License
+This project is open-source. Feel free to modify and distribute.
+
+Made with ❤️ using Next.js, React, and Tailwind CSS.
