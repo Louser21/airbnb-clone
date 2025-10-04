@@ -91,18 +91,16 @@ GOOGLE_CLIENT_SECRET=<google-client-secret>
 ```
 ### 4. Initialize Prisma
 ```
-bash
 npx prisma generate
 npx prisma db push
 ```
 ### 5. Run the Development Server
 ```
-bash
 npm run dev
 Open http://localhost:3000 to view the app.
 ```
 
-📦 Scripts
+## 📦 Scripts
 Command	Description
 npm run dev	Start the development server
 npm run build	Build the production app
@@ -110,7 +108,7 @@ npm start	Start the production server
 npx prisma generate	Generate Prisma client
 npx prisma db push	Push schema changes to database
 
-🗄 Database Schema
+## 🗄 Database Schema
 User: Stores user information & authentication data
 
 Account: Links OAuth accounts (Google, GitHub)
@@ -119,7 +117,7 @@ Listing: Property listings (title, location, price, etc.)
 
 Reservation: Bookings linking users to listings
 
-💡 Future Improvements
+## 💡 Future Improvements
 Property search & filtering
 
 Reservation management & calendar integration
