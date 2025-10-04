@@ -71,31 +71,36 @@ Copy code
 ```bash
 git clone <your-repo-url>
 cd airbnb-clone
-2. Install dependencies
-bash
+```
+###2. Install dependencies
+```bash
 Copy code
 npm install
-3. Setup Environment Variables
-Create a .env file in the root:
+```
 
+###3. Setup Environment Variables
+Create a .env file in the root:
+```
 env
-Copy code
 DATABASE_URL=<your-mongodb-connection-string>
 NEXTAUTH_SECRET=<your-nextauth-secret>
 GITHUB_ID=<github-client-id>
 GITHUB_SECRET=<github-client-secret>
 GOOGLE_CLIENT_ID=<google-client-id>
 GOOGLE_CLIENT_SECRET=<google-client-secret>
-4. Initialize Prisma
+```
+###4. Initialize Prisma
+```
 bash
-Copy code
 npx prisma generate
 npx prisma db push
-5. Run the Development Server
+```
+###5. Run the Development Server
+```
 bash
-Copy code
 npm run dev
 Open http://localhost:3000 to view the app.
+```
 
 📦 Scripts
 Command	Description
