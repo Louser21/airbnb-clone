@@ -101,32 +101,34 @@ Open http://localhost:3000 to view the app.
 ```
 
 ## 📦 Scripts
-Command	Description
+- Command	Description
+```
 npm run dev	Start the development server
 npm run build	Build the production app
 npm start	Start the production server
 npx prisma generate	Generate Prisma client
 npx prisma db push	Push schema changes to database
+```
 
 ## 🗄 Database Schema
-User: Stores user information & authentication data
+- User: Stores user information & authentication data
 
-Account: Links OAuth accounts (Google, GitHub)
+- Account: Links OAuth accounts (Google, GitHub)
 
-Listing: Property listings (title, location, price, etc.)
+- Listing: Property listings (title, location, price, etc.)
 
-Reservation: Bookings linking users to listings
+- Reservation: Bookings linking users to listings
 
 ## 💡 Future Improvements
-Property search & filtering
+- Property search & filtering
 
-Reservation management & calendar integration
+- Reservation management & calendar integration
 
-Review and rating system
+- Review and rating system
 
-Payment gateway integration
+- Payment gateway integration
 
-📄 License
-This project is open-source. Feel free to modify and distribute.
+## 📄 License
+- This project is open-source. Feel free to modify and distribute.
 
 Made with ❤️ using Next.js, React, and Tailwind CSS.
