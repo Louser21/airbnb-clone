@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import axios from 'axios';
 import { AiFillGithub } from 'react-icons/ai'

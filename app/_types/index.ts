@@ -6,5 +6,5 @@ User,
 > & {
     createdAt : string,
     updatedAt : string,
-    emailVerified : string,
+    emailVerified : string | null,
 }
