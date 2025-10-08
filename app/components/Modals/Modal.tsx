@@ -49,7 +49,6 @@ const Modal: React.FC<ModalProps> = ({
         if (disabled) {
             return;
         }
-
         onSubmit();
     }, [disabled, onSubmit])
 

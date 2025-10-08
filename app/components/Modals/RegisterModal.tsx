@@ -19,86 +19,110 @@ import toast from 'react-hot-toast';
 import Button from '../Button';
 import { signIn } from 'next-auth/react';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import client from '@/app/libs/prismadb';
 
 const RegisterModal = () => {
+
+    //should be memoised inside the hooks not here like
+    // const registerModal = useMemo(()=>useRegisterModal(),[]);
+    //or
+    // const registerModal = useMemo(useRegisterModal,[]);
+
+    //the above defeats the pupose of calling hooks at top level
+    //i.e. call in top scope not inside loops or block statements
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
-    const [isLoading,setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const {
         register,
         handleSubmit,
-        formState : {
+        formState: {
             errors,
         }
     } = useForm<FieldValues>({
-        defaultValues:{
-            name : '',
+        defaultValues: {
+            name: '',
             email: '',
-            password:'',
+            password: '',
         }
     });
 
-    const onSubmit : SubmitHandler<FieldValues> = async (data) => {
+    const onSubmit: SubmitHandler<FieldValues> = useCallback(async (data) => {
         setIsLoading(true);
-        try{
-            const res = await axios.post('/api/register',data);
-            await registerModal.onClose();
-        }catch(err){
+        try {
+            const res = await axios.post('/api/register', data);
+            const {email,password} = data;
+            await signIn("credentials", {
+                email,
+                password:password,
+                redirect: false,
+            }).then((callback) => {
+                if (callback?.ok) {
+                    toast.success('Registered User');
+                    registerModal.onClose();
+                }
+                if (callback?.error) {
+                    toast.error(callback?.error);
+                }
+            });
+        } catch (err) {
             toast.error('Something went wrong');
-        }finally{
+        } finally {
             setIsLoading(false);
+            window.location.reload();
         }
-            
-    }
-    const toggle = () => {
+    }, [registerModal])
+
+    const toggle = useCallback(() => {
         registerModal.onClose();
         loginModal.onOpen();
-    }
+    }, [registerModal, loginModal])
+
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading title='Welcome to Airbnb' subtitle='Create an Account!' />
-            <Input 
-                id = "email"
-                label = "Email"
-                disabled = {isLoading}
+            <Input
+                id="email"
+                label="Email"
+                disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
             />
-            <Input 
-                id = "name"
-                label = "Name"
-                disabled = {isLoading}
+            <Input
+                id="name"
+                label="Name"
+                disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
             />
-            <Input 
-                id = "password"
-                label = "Password"
-                disabled = {isLoading}
+            <Input
+                id="password"
+                label="Password"
+                disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
-                type = "password"
+                type="password"
             />
         </div>
     )
 
-    const footerContent =(
+    const footerContent = (
         <div className='flex flex-col gap-4 mt-3'>
             <hr />
-            <Button outline label = "Continue with Google" Icon={FcGoogle} onClick={()=>signIn('google')} />
-            <Button outline label = "Continue with Github" Icon={AiFillGithub} onClick={()=>signIn('github')} />
+            <Button outline label="Continue with Google" Icon={FcGoogle} onClick={() => signIn('google')} />
+            <Button outline label="Continue with Github" Icon={AiFillGithub} onClick={() => signIn('github')} />
             <div className='text-neutral-500 text-center mt-4 font-light '>
                 <div className='justify-center flex items-center gap-2 '>
                     <div>
                         Already have an account?
                     </div>
                     <div
-                    className='text-neutral-800 cursor-pointer hover:underline'
-                    onClick={toggle}>
+                        className='text-neutral-800 cursor-pointer hover:underline'
+                        onClick={toggle}>
                         Log in
                     </div>
                 </div>
@@ -107,7 +131,7 @@ const RegisterModal = () => {
     )
     return (
         <div>
-            <Modal body={bodyContent} footer ={footerContent} disabled={isLoading} isOpen = {registerModal.isOpen} title='Register' actionLabel='Continue' onClose = {registerModal.onClose} onSubmit = {handleSubmit(onSubmit)} />
+            <Modal body={bodyContent} footer={footerContent} disabled={isLoading} isOpen={registerModal.isOpen} title='Register' actionLabel='Continue' onClose={registerModal.onClose} onSubmit={handleSubmit(onSubmit)} />
         </div>
     )
 }
