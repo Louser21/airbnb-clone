@@ -10,10 +10,11 @@ import { useCallback } from "react";
 interface CategoryBoxProps {
     icon: IconType;
     label: string;
-    selected?: boolean
+    selected?: boolean;
+    description : string
 }
 
-const CategoryBox: React.FC<CategoryBoxProps> = ({ icon :Icon, label, selected }) => {
+const CategoryBox: React.FC<CategoryBoxProps> = ({ icon :Icon, label, selected,description }) => {
     const router = useRouter();
     const params = useSearchParams();
 
