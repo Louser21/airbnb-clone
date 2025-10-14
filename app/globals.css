@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.leaflet-bottom , .leaflet-control,.leaflet-pane,.leaflet-top {
+    z-index : 0 !important;
+}
