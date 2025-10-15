@@ -19,21 +19,6 @@ interface MapProps {
   center?: number[],
 }
 
-function ScrollZoom() {
-  const map = useMap();
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const zoom = Math.min(10, 2 + scrollY / 200);
-      map.setZoom(zoom);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [map]);
-  return null;
-}
-
-
 const Map: React.FC<MapProps> = ({ center }) => {
   return (
     <MapContainer
@@ -48,7 +33,6 @@ const Map: React.FC<MapProps> = ({ center }) => {
       {center && (
         <Marker position={center as L.LatLngExpression} icon={icon}/>
       )}
-      <ScrollZoom />
     </MapContainer>
   )
 }
